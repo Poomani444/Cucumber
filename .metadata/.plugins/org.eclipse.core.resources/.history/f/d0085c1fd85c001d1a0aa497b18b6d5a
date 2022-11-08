@@ -1,0 +1,20 @@
+package com.string;
+
+public class Demo_String {
+
+	public static void main(String[] args) {
+
+		// Task1==> testing software
+		String s = "software testing";
+		String[] s1 = s.split(" ");
+		for (int i = s1.length - 1; i >= 0; i--) { // length= 2
+			System.out.print("Task1==> "+s1[i] + " ");
+		}
+		
+		//Tast2==> Te
+		
+		
+		
+
+	}
+}

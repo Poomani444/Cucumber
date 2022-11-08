@@ -1,0 +1,51 @@
+package com.demopackage;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Meesho {
+	public static WebDriver driver;
+
+	public static void browserLaunch() {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\monis\\eclipse-workspace\\Selenuim\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://www.meesho.com/shirts-men/pl/3jq");
+		driver.manage().window().maximize();
+	}
+
+	public static void totalNumberOfProducts() {
+		List<WebElement> allProducts = driver.findElements(By.xpath(
+				"//div[@class='Card__BaseCard-b3n78k-0 bABJTD NewProductCardstyled__CardStyled-sc-6y2tys-0 kXDxsX NewProductCardstyled__CardStyled-sc-6y2tys-0 kXDxsX']"));
+		int totalProduct = allProducts.size();
+		System.out.println("Total No of Products : " + totalProduct);
+	}
+
+	public static void minPriceOfProduct() {
+		List<Integer> priceList = new ArrayList<>();
+		List<WebElement> allPrice = driver.findElements(By.xpath(
+				"//div[@class='Card__BaseCard-b3n78k-0 bABJTD NewProductCardstyled__CardStyled-sc-6y2tys-0 kXDxsX NewProductCardstyled__CardStyled-sc-6y2tys-0 kXDxsX']//descendant::h5[@color='greyBase']"));
+		for (WebElement price : allPrice) {
+			String priceText = price.getText().replaceAll("₹", "");
+			int priceValue = Integer.parseInt(priceText);
+			priceList.add(priceValue);
+
+		}
+		Integer min = Collections.min(priceList);
+		System.out.println(min);
+
+	}
+
+	public static void main(String[] args) {
+		browserLaunch();
+		totalNumberOfProducts();
+		minPriceOfProduct();
+
+	}
+}

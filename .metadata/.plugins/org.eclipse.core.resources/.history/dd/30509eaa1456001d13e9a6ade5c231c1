@@ -1,0 +1,33 @@
+package com.demo;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class WriteData {
+	
+	public static void WriteData() throws IOException {
+		File f = new File("C:\\Users\\monis\\Desktop\\Flower.xlsx");
+		FileInputStream fis = new FileInputStream(f);
+		Workbook wb = new XSSFWorkbook();
+		 Sheet createSheet = wb.createSheet("Employee Details");
+		 Row createRow = createSheet.createRow(0);
+		 Cell createCell = createRow.createCell(0);
+		 createCell.setCellValue("Username");
+		
+
+		
+	}
+	public static void main(String[] args) throws IOException {
+		WriteData();
+	}
+
+}

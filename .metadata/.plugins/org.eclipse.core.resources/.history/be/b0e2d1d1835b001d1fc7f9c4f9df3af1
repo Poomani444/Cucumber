@@ -1,0 +1,14 @@
+package com.demopackage;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+public class Usage {
+	List<WebElement> allPrices = driver.findElements(By.xpath("//li[@class='product-base']//descendant::div[@class='product-price']/span/span[@class='product-discountedPrice']")); 
+	 for (WebElement price : allPrices) {
+		 String priceText = price.getText().replaceAll("Rs. ", "");
+		 System.out.println(priceText);
+
+}

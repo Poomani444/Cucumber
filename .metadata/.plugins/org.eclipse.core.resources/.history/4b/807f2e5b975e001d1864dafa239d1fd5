@@ -1,0 +1,34 @@
+package com.demopackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Task_Flipkart {
+
+	public static WebDriver driver;
+
+	public static void browserLaunch() {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\monis\\eclipse-workspace\\Selenuim\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://www.flipkart.com/"); //https://www.flipkart.com/
+		driver.manage().window().maximize();
+	}
+
+	public static void getWindow() { 
+	driver.findElement(By.xpath("//button[contains(@class,'_2KpZ6l')]")).click();
+		WebElement findElement = driver.findElement(By.xpath("//div[text()='Electronics']"));
+		Select s = new Select(findElement);
+		s.selectByIndex(0);
+	}
+
+	public static void main(String[] args) {
+		browserLaunch();
+		getWindow();
+
+	}
+
+}

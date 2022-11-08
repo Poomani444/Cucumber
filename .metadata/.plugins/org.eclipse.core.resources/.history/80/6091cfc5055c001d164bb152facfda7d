@@ -1,0 +1,61 @@
+package com.adactin.stepdefinition;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+public class StepDefinition {
+	
+	@Given("^user Launch The Web Application$")
+	public void user_Launch_The_Web_Application() throws Throwable {
+	   
+	}
+
+	@When("^user Enter The Username In Username Field$")
+	public void user_Enter_The_Username_In_Username_Field() throws Throwable {
+	   
+	}
+
+	@When("^user Enter The Password In Password Field$")
+	public void user_Enter_The_Password_In_Password_Field() throws Throwable {
+	  
+	}
+
+	@Then("^user Click The Login Button And Navigates To Search Hotel Page$")
+	public void user_Click_The_Login_Button_And_Navigates_To_Search_Hotel_Page() throws Throwable {
+	   
+	}
+
+	@When("^user Enter The Username In UserName Field$")
+	public void user_Enter_The_Username_In_UserName_Field() throws Throwable {
+	    
+	}
+
+	@When("^user Enter The Confirm Password In Confirm Password Field$")
+	public void user_Enter_The_Confirm_Password_In_Confirm_Password_Field() throws Throwable {
+	  
+	}
+
+	@When("^user Enter The Fullname In Fullname Field$")
+	public void user_Enter_The_Fullname_In_Fullname_Field() throws Throwable {
+	   
+	}
+
+	@When("^user Enter The Email Address In Email Address Field$")
+	public void user_Enter_The_Email_Address_In_Email_Address_Field() throws Throwable {
+	  
+	}
+
+	@When("^user Enter The Captcha Text In Captcha Text Field What Is There In Captcha Image Field$")
+	public void user_Enter_The_Captcha_Text_In_Captcha_Text_Field_What_Is_There_In_Captcha_Image_Field() throws Throwable {
+	   
+	}
+
+	@Then("^user Click The Terms/Conditions And Register The Form$")
+	public void user_Click_The_Terms_Conditions_And_Register_The_Form() throws Throwable {
+	    
+	}
+
+
+
+}

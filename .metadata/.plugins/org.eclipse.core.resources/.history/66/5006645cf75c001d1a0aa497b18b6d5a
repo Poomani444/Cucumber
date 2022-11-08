@@ -1,0 +1,48 @@
+package com.demopackage;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Flipkart {
+	public static WebDriver driver;
+
+	public static void browserLaunch() {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\monis\\eclipse-workspace\\Selenuim\\driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get(
+				"https://www.amazon.in/s?k=boys+styles+dress&adgrpid=58680491733&ext_vrnc=hi&gclid=CjwKCAjw8JKbBhBYEiwAs3sxN3BjdUnWn-SIq2_-Af7HY8S66g3agSig8N50Br6ImgdkfEgSi5nlnBoCgNwQAvD_BwE&hvadid=379969883236&hvdev=c&hvlocphy=9302160&hvnetw=g&hvqmt=b&hvrand=12318473417797003167&hvtargid=kwd-297277944611&hydadcr=23842_1952145&tag=googinhydr1-21&ref=pd_sl_5soni4ttt_b");
+		driver.manage().window().maximize();
+	}
+
+	public static void totalNumberOfProducts() {
+		List<WebElement> allProduct = driver.findElements(By.xpath("//div[@class='sg-col-inner']"));
+		int totalProducts = allProduct.size();
+		System.out.println("Total Number Of Products :  " + totalProducts);
+	}
+
+	public static void minPriceOfProduct() {
+		List<Integer> priceList = new ArrayList<>();
+		List<WebElement> allPrice = driver.findElements(By.xpath(
+				"//div[@class='sg-col-inner']//descendant::a[@class='a-size-base a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal']//span[@class='a-price-whole']"));
+		for (WebElement price : allPrice) {
+			String priceText = price.getText();
+			int priceValue = Integer.parseInt(priceText);
+			priceList.add(priceValue);
+		}
+		int minPrice = Collections.min(priceList);
+		System.out.println(minPrice);
+	}
+
+	public static void main(String[] args) {
+		browserLaunch();
+		totalNumberOfProducts();
+		minPriceOfProduct();
+	}
+}

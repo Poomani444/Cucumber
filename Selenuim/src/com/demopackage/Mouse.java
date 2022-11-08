@@ -1,0 +1,28 @@
+package com.demopackage;
+ 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Mouse {       //Actions
+
+  public static void main(String[] args) {
+	 
+	  System.setProperty("webdriver.chrome.driver", "C:\\Users\\monis\\eclipse-workspace\\Selenuim\\driver\\chromedriver.exe");
+	  WebDriver driver = new ChromeDriver();
+	 // driver.get("https://www.amazon.in/?&ext_vrnc=hi&tag=googhydrabk1-21&ref=pd_sl_4qsiujpf5j_e&adgrpid=60456322738&hvpone=&hvptwo=&hvadid=486459496700&hvpos=&hvnetw=g&hvrand=15140918966458619982&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9302160&hvtargid=kwd-360364908477&hydadcr=14451_2154369&gclid=Cj0KCQjwqoibBhDUARIsAH2OpWjyVOMbtJq83cCkg2o7vYfwROnTwIrmxCMAAhjGeGIcvCIoejs1i9gaAojbEALw_wcB");
+	  driver.get("https://demoqa.com/droppable/");
+	  driver.manage().window().maximize();
+	  
+	  Actions a = new Actions(driver);
+	 // WebElement best = driver.findElement(By.xpath("(//a[text()='Best Sellers'])[1]"));
+	 // a.click(best).build().perform();
+	  //a.contextClick(best).build().perform();
+	  WebElement drag = driver.findElement(By.id("draggable"));
+	  WebElement drop = driver.findElement(By.id("droppable"));
+	  a.clickAndHold(drag).moveToElement(drag).release(drop).build().perform();
+}
+	
+}
